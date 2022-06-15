@@ -22,8 +22,8 @@ class RegisterController extends Controller
           'nohp'=>'required',
           'jeniskelamin'=>'required'
       ]);
-      dd($validated);
+      User::create($validated);
 
-     
+      return redirect()->route('list')->with('success', 'Registration Successfull ,Please Login!');
    }
 }

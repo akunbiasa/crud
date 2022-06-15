@@ -25,5 +25,7 @@ Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/register', [RegisterController::class,'index']);
 Route::post('/register', [RegisterController::class,'store']);
 Route::get('/list', [ListController::class,'index'])->name('list');
+Route::get('/list', [ListController::class,'list'])->name('list');
+
 
 
