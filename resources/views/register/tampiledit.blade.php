@@ -3,26 +3,26 @@
   
         <div class="col-lg-4">
           <main class="form-registration w-100 m-auto mt-5">
-            <form action="/register" method="post">
+            <form action="/editdata/{{ $data->id }}" method="post">
               @csrf
               
-              <h1 class="h3 mb-3 fw-normal">Form Daftar</h1>
+              <h1 class="h3 mb-3 fw-normal">Edit Data</h1>
           
               <div class="form-floating">
-                <input type="text" name="nama" class="form-control rounded-top" id="nama" placeholder="Nama">
-                <label for="nama">Nama</label>
+                <input type="text" name="nama" class="form-control rounded-top" id="nama" placeholder="Nama" value="{{ $data->nama }}">
+                <label for="nama" >Nama</label>
               </div>
               <div class="form-floating">
-                <input type="text" name="angkatan" class="form-control" id="angkatan" placeholder="Angkatan">
-                <label for="angkatan">Angkatan</label>
+                <input type="text" name="angkatan" class="form-control" id="angkatan" placeholder="Angkatan" value="{{ $data->angkatan }}">
+                <label for="angkatan" >Angkatan</label>
               </div>
               <div class="form-floating">
-                <input type="nohp" name="nohp" class="form-control" id="nohp" placeholder="NoHP">
-                <label for="nohp">NoHP</label>
+                <input type="nohp" name="nohp" class="form-control" id="nohp" placeholder="NoHP" value="{{ $data->nohp }}">
+                <label for="nohp" >NoHP</label>
               </div>
               <div class="form-floating">
                 <select class="form-select" name="jeniskelamin" aria-label="Default select example">
-                  <option selected >Pilih Jenis Kelamin</option>
+                  <option selected >{{ $data->jeniskelamin }}</option>
                   <option value="Laki-laki">Laki-laki</option>
                   <option value="Perempuan">Perempuan</option>
                   
@@ -31,12 +31,12 @@
               
           
              
-              <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Daftar</button>
+              <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Edit</button>
               
             </form>
       
             
-            <a class="d-block text-center mt-3" href="/list">Sudah Mendaftar? Lihat Peserta disini</a>
+           
           
           </main>
         </div>

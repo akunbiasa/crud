@@ -28,4 +28,11 @@ Route::get('/list', [ListController::class,'index'])->name('list');
 Route::get('/list', [ListController::class,'list'])->name('list');
 
 
+Route::get('/tampilkandata/{id}', [ListController::class,'tampilkandata'])->name('tampilkandata');
+Route::post('/editdata/{id}', [ListController::class,'editdata'])->name('editdata');
+
+Route::get('/hapusdata/{id}', [ListController::class,'hapusdata'])->name('hapusdata');
+
+
+
 

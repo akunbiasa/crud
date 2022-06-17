@@ -16,14 +16,16 @@ class RegisterController extends Controller
 
     public function store(Request $request)
    {
-    $validated= $request->validate([
-          'nama'=>'required',
-          'angkatan'=>'required',
-          'nohp'=>'required',
-          'jeniskelamin'=>'required'
-      ]);
-      User::create($validated);
+   
+        $validate = user::create([
+            'nama' => $request->nama,
+            'angkatan' => $request->angkatan,
+            'nohp' => $request->nohp,
+            'jeniskelamin' => $request->jeniskelamin
+           
+        ]);
 
-      return redirect()->route('list')->with('success', 'Registration Successfull ,Please Login!');
+        return redirect()->route('list')->with('success','Daftar Berhasil !');
    }
+   
 }

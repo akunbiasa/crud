@@ -1,7 +1,17 @@
 @extends('components.layouts')
+@if($message = Session::get('success'))
+    <div class="row">
+      <div class="alert alert-success" role="alert">
+        {{ $message }}
+      </div>
+      @endif
 <div class="row justify-content-center mt-5">
+  
   <div class="col-10">
+    
       <div class="card">
+     
+  </div>
           <div class="card-header">
           Data all users
           </div>
@@ -22,16 +32,16 @@
                   </thead>
 
                   <tbody>
-                  @foreach ($users as $key => $user)
+                  @foreach ($users as $row )
                     <tr>
-                      <th scope="row">{{ ++$key }}</th>
-                     <td>{{  $user->nama }}</td>
-                     <td>{{  $user->angkatan }}</td>
-                     <td>{{  $user->nohp }}</td>
-                     <td>{{  $user->jeniskelamin }}</td>
+                      <th scope="row">{{ $row->id }}</th>
+                     <td>{{  $row->nama }}</td>
+                     <td>{{  $row->angkatan }}</td>
+                     <td>{{  $row->nohp }}</td>
+                     <td>{{  $row->jeniskelamin }}</td>
                      <td>
-                      <a href="#"><button type="button" class="btn btn-primary">EDIT</button></a>
-                      <a href="#"><button type="button" class="btn btn-danger">HAPUS</button></a>
+                      <a href="/tampilkandata/{{ $row->id }}"  class="btn btn-primary">EDIT</a>
+                      <a href="/hapusdata/{{ $row->id }}" type="button" class="btn btn-danger">HAPUS</a>
                     </td>
                     </tr>   
                   @endforeach
@@ -43,4 +53,4 @@
       </div>
   </div>
 </div>
-<a class="d-block text-center justify-content-center mt-2" href="/register">Not Registered? Register Now</a>
+<a class="btn btn-primary d-block text-center justify-content-center mt-2" href="/register">Not Registered? Register Now</a>
