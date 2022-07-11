@@ -1,22 +1,37 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
+use Barryvdh\DomPDF\Facade as PDF;
+
 class ListController extends Controller
 {
-    public function index()
-    {
-        return view('list.index', compact('data'));
-    }
+    // public function index(Request $request)
+    // {
+    //     if($request->has('search')){
+    //         $data = User::where('nama','LIKE','%' .$request->search.'%')->paginate(5);
+    //     }else{
+    //         $data = User::paginate(5);
+    //     }
+    //     $data = User::paginate(5);
+    //     return view('list.index', compact('data'));
+        
+    // }
 
     public function list()
     {
         return view('list.index', [
-            'users' => User::all(),
+            'users' => User::paginate(5),
         ]);      
     }
+
+    
+
+
 
     public function tampilkandata($id)
     {
@@ -40,5 +55,14 @@ class ListController extends Controller
         $data->delete();
         return redirect()->route('list')->with('success','Data Berhasil Di Hapus !');
 
+    }
+
+    public function exportpdf()
+    {
+        $data = User::all();
+
+        view()->share('data' , $data);
+        $pdf = PDF::loadview('pdf.index');
+        return $pdf->download('list.pdf');
     }
 }
