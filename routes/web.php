@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PdfController;
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,15 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/register', [RegisterController::class,'index']);
 Route::get('/dashboard', [DashboardController::class,'index']);
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+
+
 Route::post('/register', [RegisterController::class,'store']);
 Route::get('/list', [ListController::class,'index'])->name('list');
 Route::get('/list', [ListController::class,'list'])->name('list');
+
+Route::get('/contact', [ContactController::class,'index']);
+Route::post('/contact', [ContactController::class,'store']);
 // Route::get('/list/cari', [ListController::class,'cari']);
 
 

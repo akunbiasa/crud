@@ -4,18 +4,33 @@
 
 
 <div class="content-wrapper">
+  
     <!-- Content Header (Page header) -->
     <div class="content-header">
+      
       <div class="container-fluid">
+        
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Dashboard SMA NEGERI 5 MEDAN</h1>
           </div><!-- /.col -->
+          
           <div class="col-sm-6">
             
+            
           </div><!-- /.col -->
+          
         </div><!-- /.row -->
+        @csrf
+        <div class="card">
+          @if($message = Session::get('success'))
+          <div class="row">
+            <div class="alert alert-success" role="alert">
+              {{ $message }}
+            </div>
+            @endif
       </div><!-- /.container-fluid -->
+      
     </div>
     <!-- /.content-header -->
 
@@ -25,7 +40,7 @@
       
       <div class="container-fluid">
         <!-- Info boxes -->
-        
+   
         <div class="row" >
           
           
@@ -34,8 +49,62 @@
                   <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
                   <div class="info-box-content">
                     <span class="info-box-text">TOTAL ALUMNI</span>
-                    <span class="info-box-number">{{ $user }}</span>
+                    <span class="info-box-number">{{ $user }} <small>Orang</small></span>
+                    
                   </div>
+
+                  
+                  
+                  <!-- /.info-box-content -->
+                </div>
+                
+                <!-- /.info-box -->
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3" >
+                <div class="info-box mb-3">
+                  <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">TOTAL ALUMNI Laki-laki</span>
+                    <span class="info-box-number">{{ $userlakilaki }} <small>Orang</small> </span>
+                    
+                  </div>
+
+                  
+                  
+                  <!-- /.info-box-content -->
+                </div>
+                
+                <!-- /.info-box -->
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3" >
+                <div class="info-box mb-3">
+                  <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">TOTAL ALUMNI Perempuan</span>
+                    <span class="info-box-number">{{ $userperempuan }} <small>Orang</small></span>
+                    
+                  </div>
+
+                  
+                  
+                  <!-- /.info-box-content -->
+                </div>
+                
+                <!-- /.info-box -->
+              </div>
+
+              <div class="col-12 col-sm-6 col-md-3" >
+                <div class="info-box mb-3">
+                  <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+                  <div class="info-box-content">
+                    <span class="info-box-text">TOTAL Pesan Terkirim</span>
+                    <span class="info-box-number">{{ $contact }} <small>Pesan</small></span>
+                    
+                  </div>
+
+                  
                   
                   <!-- /.info-box-content -->
                 </div>
